@@ -1,0 +1,135 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, max-scale=5.0" />
+        <title>{{headline}}</title>
+
+				<style type="text/css">
+					* {
+						-webkit-box-sizing: border-box;
+						box-sizing: border-box;
+					}
+
+					html, body {
+						margin: 0;
+						padding: 0;
+						text-rendering: optimizeLegibility;
+						max-width: 99%;
+					}
+
+					h1 {
+						font-family: Calibri, -apple-system, BlinkMacSystemFont, Ubuntu, Roboto, Arial, sans-serif;
+						font-size: 26pt;
+						font-weight: 400;
+						color: #17355c;
+						border-bottom: thin solid #17355c;
+						padding-bottom: 5px;
+						margin-bottom: 25px;
+					}
+
+					h2 {
+						font-family: Calibri, Arial, sans-serif;
+						font-size: 14pt;
+						font-weight: bold;
+						color: #355f90;
+					}
+
+					section {
+						width: 100%;
+						margin-bottom: 30px;
+					}
+
+					p, .timestamp, .speaker {
+						font-family: Cambria, Arial, serif;
+						font-size: 11pt;
+					}
+
+					.summary p {
+						white-space: pre-wrap;
+						line-height: 30px;
+						top: -15px;
+						position: relative;
+						margin: 15px 0;
+					}
+
+					.timestamp-item, .transcript-item {
+						display: -webkit-box;
+						display: -webkit-flex;
+						display: flex;
+						margin: 15px 0;
+						page-break-inside: avoid;
+					}
+
+					.timestamp-item {
+						margin: 25px 0;
+					}
+
+					.timestamp-item .timestamp {
+						margin: 0 5px 0 0;
+						font-weight: bold;
+						page-break-inside: avoid;
+					}
+
+					.timestamp-item p {
+						margin: 0;
+						text-align: left;
+						page-break-inside: avoid;
+						-webkit-flex-grow: 1;
+						flex-grow: 1;
+						width: 95%;
+						white-space: normal;
+					}
+
+					.transcript-item .speaker {
+						margin: 0 5px 0 0;
+						width: 75px;
+						text-align: left;
+						font-weight: bold;
+						page-break-inside: avoid;
+						width: 20%;
+					}
+
+					.transcript-item p {
+						margin: 0;
+						text-align: left;
+						page-break-inside: avoid;
+						-webkit-flex-grow: 1;
+						flex-grow: 1;
+						white-space: normal;
+						width: 75%;
+					}
+				</style>
+    </head>
+
+    <body>
+			<h1>{{headline}}</h1>
+
+			<section class="summary">
+					<h2>Summary</h2>
+
+					<p>{{summary}}</p>
+			</section>
+
+			<section>
+					<h2>Timestamps</h2>
+
+					{% for item in timestamps %}
+					<div class="timestamp-item">
+						<div class="timestamp">{{ item['timestamp'] }} - </div>
+						<p>{{ item['text'] }}</p>
+					</div>
+					{% endfor %}
+			</section>
+
+			<section>
+					<h2>Transcript</h2>
+
+					{% for item in transcript %}
+					<div class="transcript-item">
+						<div class="speaker">{{ item['speaker'] }}: </div>
+						<p>{{ item['text'] }}</p>
+					</div>
+					{% endfor %}
+			</section>
+    </body>
+</html>
