@@ -5,8 +5,8 @@
 - Install dependencies: `pdfkit` and `jinja2`
 - Install `wkhtmltopdf` library:
     - On MacOS, do `brew install wkhtmltopdf`
-		- On Ubuntu, do `sudo apt-get install wkhtmltopdf`
-		- On Windows, download from [here](https://wkhtmltopdf.org/downloads.html)
+	- On Ubuntu, do `sudo apt-get install wkhtmltopdf`
+	- On Windows, download from [here](https://wkhtmltopdf.org/downloads.html)
 - Run the app: `python html_to_pdf.py`
 
 ## Change PDF template
